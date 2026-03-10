@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+:root {
+  --background: #040404;
+  --foreground: #f8f8fb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Clerk modal theming for sign-up/sign-in popup */
+.nf-clerk-backdrop {
+  background: rgba(3, 5, 11, 0.8) !important;
+  backdrop-filter: blur(2px);
+}
+
+.nf-clerk-modal-content {
+  width: 880px !important;
+  max-width: 880px !important;
+  height: min(660px, 82vh) !important;
+  display: flex !important;
+  align-items: stretch !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 34px 82px rgba(0, 0, 0, 0.46) !important;
+  background:
+    linear-gradient(90deg, #080b12 0%, #080b12 50%, rgba(8, 11, 18, 0.16) 50%),
+    url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=80")
+      center / cover no-repeat !important;
+}
+
+.nf-clerk-card {
+  /* width: 200px !important; */
+  /* min-width: 50% !important;
+  max-width: 50% !important; */
+  height: 70% !important;
+  margin: 0 !important;
+  padding: 16px 3px 23px 16px !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+.nf-clerk-card :where([class*="scroll"], [class*="Scroll"]) {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.nf-clerk-close-btn {
+  width: 28px !important;
+  height: 28px !important;
+  background: rgba(163, 188, 206, 0.36) !important;
+  border: 0 !important;
+  color: #fff !important;
+  /* position: absolute;
+  top: 9px;
+    left: 376px; */
+  visibility: hidden;
+  border-radius: 12px !important;
+}
+
+.nf-clerk-header-title {
+  margin-top: 5px !important;
+  color: #f8faff !important;
+  font-size: 28px !important;
+  line-height: 1.08 !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+}
+
+.nf-clerk-header-subtitle {
+  display: none !important;
+}
+
+.nf-clerk-social-btn {
+  border: 0 !important;
+  width: 370px;
+  border-radius: 15px !important;
+  background: #ececec !important;
+  color: #0d1016 !important;
+  min-height: 55px !important;
+  box-shadow: none !important;
+}
+
+.nf-clerk-social-btn-text {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+.nf-clerk-divider-line {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+.nf-clerk-divider-text {
+  color: rgba(236, 241, 255, 0.46) !important;
+}
+
+.nf-clerk-label {
+  color: rgba(232, 240, 255, 0.72) !important;
+}
+
+.nf-clerk-input {
+  border-radius: 15px !important;
+  min-height: 52px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgba(3, 6, 12, 0.85) !important;
+  color: #f4f8ff !important;
+}
+
+.nf-clerk-input::placeholder {
+  color: rgba(236, 241, 255, 0.36) !important;
+}
+
+.nf-clerk-input-eye {
+  color: rgba(236, 241, 255, 0.5) !important;
+}
+
+.nf-clerk-primary-btn {
+  border: 0 !important;
+  border-radius: 18px !important;
+  min-height: 50px !important;
+  background: linear-gradient(180deg, #063f90, #052d65) !important;
+  color: #53a9ff !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+.nf-clerk-footer {
+  margin-top: 10px !important;
+}
+
+.nf-clerk-footer-text {
+  color: rgba(236, 241, 255, 0.65) !important;
+}
+
+.nf-clerk-footer-link {
+  color: #5fb1ff !important;
+}
+
+.nf-clerk-hint {
+  color: rgba(236, 241, 255, 0.54) !important;
+}
+
+.nf-clerk-error {
+  color: #ff8a8a !important;
+}
+
+@media (max-width: 960px) {
+  .nf-clerk-modal-content {
+    width: min(96vw, 560px) !important;
+    max-width: 560px !important;
+    height: auto !important;
+    background: #080b12 !important;
+  }
+
+  .nf-clerk-card {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: none !important;
+    padding: 28px 18px 16px !important;
+  }
+
+  .nf-clerk-header-title {
+    font-size: 42px !important;
+  }
+}

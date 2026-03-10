@@ -1,0 +1,802 @@
+.lipSyncWorkspace {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at top, rgba(87, 170, 203, 0.08), transparent 24%),
+    #08090d;
+  color: #f7f8fb;
+  overflow: hidden;
+}
+
+.workspaceTopBar {
+  padding: 26px 42px 0;
+  display: flex;
+  align-items: center;
+}
+
+.modelMenuHost {
+  position: relative;
+}
+
+.modelButton {
+  border: 0;
+  background: transparent;
+  color: rgba(240, 243, 250, 0.88);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font-size: 22px;
+  font-weight: 450;
+}
+
+.modelButtonOpen {
+  color: #ffffff;
+}
+
+.modelDropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: -22px;
+  width: 430px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  background: rgba(16, 16, 19, 0.98);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  z-index: 20;
+}
+
+.modelDropdownTitle {
+  margin: 0;
+  padding: 18px 20px 14px;
+  color: #eef3fb;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.modelDropdownScroll {
+  max-height: 520px;
+  overflow-y: auto;
+  padding: 0 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modelOption {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #f7f8fb;
+  text-align: left;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modelOption:hover,
+.modelOptionSelected {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.modelOptionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.modelOptionName {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.modelOptionCost {
+  color: rgba(243, 247, 255, 0.78);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.modelOptionDescription {
+  margin: 0;
+  color: rgba(212, 220, 235, 0.62);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.modelOptionIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.modelOptionCircle {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.32);
+}
+
+.workspaceBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 42px 54px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.workspaceBody::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.workspaceCenter {
+  width: min(1320px, 100%);
+  margin: 0 auto;
+}
+
+.workspaceTitle {
+  margin: 150px 0 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-size: 43px;
+  font-weight: 640;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.workspaceTitleIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #0f766e, #d9f99d);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 18px 36px rgba(45, 212, 191, 0.16);
+}
+
+.emptyStage {
+  min-height: 36px;
+}
+
+.emptyStageText {
+  margin: 0;
+  text-align: center;
+  color: rgba(214, 222, 237, 0.68);
+  font-size: 15px;
+}
+
+.generatorBoard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 260px 52px minmax(0, 1fr) 188px;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 42px;
+  background: linear-gradient(180deg, rgba(36, 36, 39, 0.96), rgba(26, 26, 28, 0.98));
+  padding: 24px 22px;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.36);
+}
+
+.faceCard,
+.speechCard {
+  position: relative;
+  min-height: 228px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.faceCardFilled,
+.speechCardFilled {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.emptyCardContent {
+  height: 100%;
+  min-height: 228px;
+  color: #f5f7fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.plusDivider {
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.generateButton {
+  border: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.46);
+  min-height: 102px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.generateButton:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.generateButton:not(:disabled) {
+  background: #1f73ee;
+  color: #ffffff;
+}
+
+.generationError {
+  margin: 18px 0 0;
+  text-align: center;
+  color: #ff9595;
+  font-size: 14px;
+}
+
+.faceHoverPanel {
+  height: 100%;
+  min-height: 228px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.facePrimaryAction,
+.faceSecondaryAction {
+  width: 100%;
+  border: 0;
+  border-radius: 18px;
+  min-height: 96px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.facePrimaryAction {
+  background: #1f73ee;
+  color: #ffffff;
+}
+
+.faceSecondaryAction {
+  background: #274193;
+  color: #8fc2ff;
+}
+
+.facePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardOverlayActions {
+  position: absolute;
+  inset: 0;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(8, 9, 13, 0.08), rgba(8, 9, 13, 0.72));
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  transition: opacity 0.18s ease;
+}
+
+.faceCard:hover .cardOverlayActions {
+  opacity: 1;
+}
+
+.hoverActionButton,
+.hoverActionButtonSecondary {
+  border: 0;
+  border-radius: 16px;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hoverActionButton {
+  background: #1f73ee;
+  color: #ffffff;
+}
+
+.hoverActionButtonSecondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f7f8fb;
+}
+
+.clearSelectionButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(8, 9, 13, 0.72);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectionCaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  border-radius: 16px;
+  background: rgba(8, 9, 13, 0.72);
+  color: #ffffff;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 650;
+  text-align: center;
+}
+
+.stepPill {
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  border-radius: 16px;
+  background: #050608;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 900;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
+}
+
+.speechHoverPanel {
+  height: 100%;
+  min-height: 228px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-items: center;
+}
+
+.speechHoverAction {
+  border: 0;
+  border-radius: 22px;
+  background: #1f73ee;
+  color: #ffffff;
+  min-height: 178px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.speechHoverAction strong {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.speechHoverAction small {
+  color: rgba(225, 236, 255, 0.74);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.speechGeneratePanel,
+.audioSelectionPanel,
+.recordingPanel {
+  height: 100%;
+  min-height: 228px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.speechPanelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.speechModeBadge {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.speechTextarea {
+  flex: 1;
+  border: 0;
+  outline: none;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f7f8fb;
+  padding: 18px;
+  font-size: 18px;
+  line-height: 1.5;
+  resize: none;
+}
+
+.speechTextarea::placeholder {
+  color: rgba(222, 229, 240, 0.48);
+}
+
+.audioSelectionName {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.audioPlayer {
+  width: 100%;
+  margin-top: auto;
+}
+
+.inlineChangeButton,
+.recordingStopButton {
+  align-self: flex-start;
+  border: 0;
+  border-radius: 999px;
+  background: #1f73ee;
+  color: #ffffff;
+  min-height: 44px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.recordingPanel {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.recordingIndicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #ef4444;
+  box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.16);
+}
+
+.recordingTitle {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.recordingTime {
+  color: rgba(231, 236, 245, 0.72);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.generatedHistory {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.generatedCard {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  background: rgba(20, 21, 24, 0.92);
+  padding: 20px;
+}
+
+.generatedCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.generatedPrompt {
+  margin: 0;
+  color: #f7f8fb;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.generatedMetaRail {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.generatedMetaRail span {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #dce3f0;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.generatedVideoGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.generatedVideoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.generatedVideo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #0f1116;
+}
+
+.generatedDownloadButton {
+  align-self: flex-start;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  min-height: 40px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.assetOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(6, 7, 10, 0.74);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.assetModal {
+  width: min(900px, 100%);
+  max-height: min(82vh, 760px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  background: rgba(14, 14, 17, 0.98);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.44);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.assetModalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.assetModalEyebrow {
+  margin: 0;
+  color: rgba(202, 210, 226, 0.62);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.assetModalTitle {
+  margin: 6px 0 0;
+  color: #f7f8fb;
+  font-size: 28px;
+  font-weight: 650;
+  line-height: 1.12;
+}
+
+.assetModalClose {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5f7fb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assetEmptyText {
+  margin: 0;
+  color: rgba(214, 224, 242, 0.74);
+  font-size: 15px;
+}
+
+.assetGrid {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-right: 4px;
+}
+
+.assetCard {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.assetCard:hover,
+.assetCardSelected {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.assetCardImage {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
+
+.assetCardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.assetCardTitle {
+  color: #eef4ff;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.assetCardBadge {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #dce5f6;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 8px;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+@media (max-width: 1380px) {
+  .workspaceTitle {
+    margin-top: 110px;
+  }
+
+  .generatorBoard {
+    grid-template-columns: 220px 42px minmax(0, 1fr) 170px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .workspaceBody {
+    padding: 18px 20px 40px;
+  }
+
+  .generatorBoard {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .plusDivider {
+    display: none;
+  }
+
+  .generateButton {
+    min-height: 72px;
+  }
+
+  .speechHoverPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .generatedVideoGrid,
+  .assetGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .workspaceTopBar {
+    padding: 20px 16px 0;
+  }
+
+  .modelDropdown {
+    width: min(360px, calc(100vw - 24px));
+    left: 0;
+  }
+
+  .workspaceTitle {
+    font-size: 42px;
+    gap: 12px;
+  }
+
+  .workspaceTitleIcon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .faceCard,
+  .speechCard,
+  .emptyCardContent,
+  .faceHoverPanel,
+  .speechGeneratePanel,
+  .audioSelectionPanel,
+  .recordingPanel,
+  .speechHoverPanel {
+    min-height: 200px;
+  }
+
+  .speechHoverAction {
+    min-height: 128px;
+  }
+}

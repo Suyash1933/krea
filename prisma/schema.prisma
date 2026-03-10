@@ -1,0 +1,128 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String         @id @default(cuid())
+  clerkId      String         @unique
+  workflows    Workflow[]
+  chatSessions ChatSession[]
+  createdAt    DateTime       @default(now())
+}
+
+model Workflow {
+  id        String   @id @default(cuid())
+  name      String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  nodes     Json
+  edges     Json
+  createdAt DateTime @default(now())
+}
+
+model ExecutionHistory {
+  id         String   @id @default(cuid())
+  workflowId String
+  status     String
+  duration   Float?
+  createdAt  DateTime @default(now())
+}
+
+model ChatSession {
+  id          String            @id @default(cuid())
+  userId      String
+  user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String            @default("New Session")
+  messages    ChatMessage[]
+  generations ImageGeneration[]
+  videoGenerations VideoGeneration[]
+  images      GeneratedImage[]
+  videos      GeneratedVideo[]
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([userId, updatedAt(sort: Desc)])
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+}
+
+model ChatMessage {
+  id        String      @id @default(cuid())
+  sessionId String
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role      MessageRole
+  content   String      @db.Text
+  metadata  Json?
+  createdAt DateTime    @default(now())
+
+  @@index([sessionId, createdAt])
+}
+
+model ImageGeneration {
+  id                String         @id @default(cuid())
+  sessionId         String
+  session           ChatSession    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  prompt            String         @db.Text
+  modelAlias        String
+  aspectLabel       String
+  frameSizeLabel    String
+  resolutionLabel   String
+  imagePromptName   String?
+  styleTransferName String?
+  images            GeneratedImage[]
+  createdAt         DateTime       @default(now())
+
+  @@index([sessionId, createdAt(sort: Desc)])
+}
+
+model GeneratedImage {
+  id           String          @id @default(cuid())
+  generationId String
+  generation   ImageGeneration @relation(fields: [generationId], references: [id], onDelete: Cascade)
+  sessionId    String
+  session      ChatSession     @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  mimeType     String
+  imageData    String          @db.Text
+  createdAt    DateTime        @default(now())
+
+  @@index([sessionId, createdAt(sort: Desc)])
+}
+
+model VideoGeneration {
+  id              String         @id @default(cuid())
+  sessionId       String
+  session         ChatSession    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  prompt          String         @db.Text
+  modelAlias      String
+  resolutionLabel String
+  durationLabel   String
+  startFrameMode  String?
+  videos          GeneratedVideo[]
+  createdAt       DateTime       @default(now())
+
+  @@index([sessionId, createdAt(sort: Desc)])
+}
+
+model GeneratedVideo {
+  id              String          @id @default(cuid())
+  generationId    String
+  generation      VideoGeneration @relation(fields: [generationId], references: [id], onDelete: Cascade)
+  sessionId       String
+  session         ChatSession     @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  mimeType        String
+  videoUrl        String          @db.Text
+  previewImageUrl String?         @db.Text
+  createdAt       DateTime        @default(now())
+
+  @@index([sessionId, createdAt(sort: Desc)])
+}

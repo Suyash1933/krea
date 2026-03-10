@@ -1,0 +1,1211 @@
+.imageWorkspace {
+  height: 100%;
+  min-height: 0;
+  background: radial-gradient(circle at 22% 22%, rgb(19, 20, 21) , rgb(19, 20, 21), rgb(19, 20, 21));
+  color: #f2f6ff;
+  padding: 20px 34px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.workspaceTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 220;
+  width: auto;
+  margin-top: 4px;
+  bottom: auto;
+}
+
+.modelButton {
+  border: 0;
+  background: transparent;
+  color: #d8dde7;
+  font-size: clamp(20px, -1.6vw, 38px);
+    font-weight: 360;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.modelButtonOpen {
+  opacity: 1;
+  color: #f2f6ff;
+}
+
+.modelDropdown {
+  position: absolute;
+  top: 120px;
+  left: 60px;
+  width: 90px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  height: 350px;
+  background: rgba(16, 16, 17, 0.98);
+  box-shadow: 0 28px 58px rgba(0, 0, 0, 0.58);
+  overflow: hidden;
+  z-index: 180;
+}
+
+.modelDropdownScroll {
+  max-height: 350px;
+  padding: 8px 8px 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 225, 241, 0.58) transparent;
+}
+
+.modelDropdownScroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modelDropdownScroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(214, 223, 241, 0.48);
+}
+
+.modelOption {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #ebf1ff;
+  text-align: left;
+  padding: 0;
+  border-radius: 15px;
+  margin-bottom: 4px;
+}
+
+.modelOption:last-child {
+  margin-bottom: 0;
+}
+
+.modelOptionMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 15px;
+  border: 1px solid transparent;
+  transition: background-color 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.modelOption:hover .modelOptionMain {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.modelOptionSelected .modelOptionMain {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.96);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.modelOptionIcon {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  flex: 0 0 auto;
+  color: rgba(226, 232, 243, 0.8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modelOptionBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.modelOptionName {
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.12;
+  color: #f4f6ff;
+}
+
+.modelOptionCheck {
+  margin-left: auto;
+  margin-top: 2px;
+  color: #f4f7ff;
+  flex: 0 0 auto;
+}
+
+.modelOptionDescription {
+  color: rgba(208, 216, 232, 0.78);
+  font-size: 12px;
+  line-height: 1.32;
+}
+
+.modelOptionStar {
+  margin-left: auto;
+  margin-top: 2px;
+  flex: 0 0 auto;
+  color: rgba(232, 239, 255, 0.78);
+  opacity: 0;
+  transition: opacity 0.16s ease;
+}
+
+.modelOption:hover .modelOptionStar {
+  opacity: 1;
+}
+
+.modelOptionSelected .modelOptionStar {
+  opacity: 0;
+}
+
+.workspaceHero {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.workspaceTitle {
+  position: absolute;
+  top:23px ;
+  left: 700px;
+    align-items: center;
+    gap: 10px;
+    margin: 0px;
+  
+    font-size: clamp(20px, 4.1vw, 48px);
+    font-weight: 600;
+    line-height: 1;
+  
+    display: inline-flex;
+}
+
+.workspaceTitleIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #f0f6ff, #d9e6ff);
+  color: #1f4f95;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(13, 33, 62, 0.16);
+}
+
+.cardRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  padding-inline: 8px;
+  /* height: clamp(250px, 46vh, 420px); */
+  min-height: 0;
+  overflow: visible;
+}
+
+.promptCard {
+  position: relative;
+  min-height: 0;
+  height: 280px;
+  max-width: 220px;
+  right: -50px;
+  top: 170px;
+  z-index: 0;
+  /* flex: 0 0 min(22vw, 330px); */
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.34);
+  cursor: pointer;
+  transition: box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.promptCardActive {
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.42),
+    inset 0 0 0 2px rgba(122, 191, 255, 0.62);
+}
+
+.cardTiltOne {
+  transform: rotate(-3deg) translateY(6px);
+  z-index: 1;
+}
+.cardTiltOne:hover {
+  transform: rotate(-3deg) translateY(6px) scale(1.02);
+}
+.cardTiltOne:active {
+  transform: rotate(-3deg) translateY(6px) ;
+}
+
+.cardTiltTwo {
+  transform: translateX(-38px) rotate(-1deg) translateY(42px);
+  z-index: 2;
+}
+.cardTiltTwo:hover {
+  transform: translateX(-28px) rotate(-1deg) translateY(32px) scale(1.02);
+}
+.cardTiltTwo:active {
+  transform: translateX(-28px) rotate(-1deg) translateY(32px);
+}
+
+.cardTiltThree {
+  transform: translateX(-76px) rotate(-1.2deg) translateY(14px);
+  z-index: 3;
+}
+.cardTiltThree:hover {
+  transform: translateX(-56px) rotate(-1.2deg) translateY(14px) scale(1.02);
+}
+.cardTiltThree:active {
+  transform: translateX(-56px) rotate(-1.2deg) translateY(14px);
+}
+
+.cardTiltFour {
+  transform: translateX(-114px) rotate(2.5deg) translateY(46px);
+  z-index: 4;
+}
+.cardTiltFour:hover {
+  transform: translateX(-80px) rotate(2.5deg) translateY(36px) scale(1.02);
+}
+.cardTiltFour:active {
+  transform: translateX(-80px) rotate(2.5deg) translateY(36px);
+}
+
+.promptCardOverlay {
+  position: absolute;
+  /* width : 500px; */
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 6, 10, 0.06), rgba(4, 6, 10, 0.76));
+}
+
+.promptCard h3 {
+  position: absolute;
+  left: 20px;
+  right: 20px;  
+  bottom: 18px;
+  margin: 0;
+  font-size: clamp(18px, 1.2vw, 30px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #b4b9c4;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.promptDock {
+  border-radius: 32px;
+  border: 1px solid rgba(240, 246, 255, 0.14);
+  background: linear-gradient(
+      180deg,
+      rgba(36, 34, 34, 0.07) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    ),
+    rgba(20, 24, 33, 0.94);
+  padding: 14px 14px 12px;
+  height: 120px;
+  width: 340px;
+  position: absolute;
+  bottom: 1px;
+  right: 100px;
+  display: flex;
+  padding: 20px 20px 2px 2px;
+  flex-direction: column;
+  gap: 12px;
+  flex: 0 0 auto;
+  z-index: 120;
+}
+
+.promptInput {
+  width: 100%;
+  min-height: 56px;
+  max-height: 86px;
+  resize: none;
+  border: 0;
+  padding: 10px;
+  outline: none;
+  background: transparent;
+  color: #e7edf8;
+  font-size: clamp(18px, 0.8vw, 37px);
+  line-height: 1.28;
+  font-family: inherit;
+}
+
+.promptInput::placeholder {
+  color: rgba(231, 237, 248, 0.56);
+}
+
+.promptActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  position: relative;
+  overflow: visible;
+}
+
+.chipButton {
+  color: #f3f7ff;
+    background: #ffffff0f;
+    flex: none;
+    align-items: center;
+    gap: 1px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 535;
+    display: inline-flex;
+    border-radius: 38px;
+}
+
+.chipButtonWithSelection {
+  box-shadow: inset 0 0 0 1px rgba(113, 178, 255, 0.72);
+}
+
+.uploadChipDot {
+  width: 7px;
+  height: 7px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: #4eb0ff;
+  box-shadow: 0 0 0 4px rgba(78, 176, 255, 0.14);
+}
+
+.uploadChipHost {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  z-index: 130;
+}
+
+.uploadInputHidden {
+  display: none;
+}
+
+.uploadPopover {
+  position: absolute;
+  left: 50%;
+  height: 235px;
+  bottom: calc(100% + 12px);
+  width: 300px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(23, 23, 27, 0.98);
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.52);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px) scale(0.97);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 190;
+}
+
+.uploadPopoverAlignRight {
+  left: auto;
+  right: 0;
+  transform: translate(0, 12px) scale(0.97);
+}
+
+.uploadPopoverOpen {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.uploadPopoverAlignRight.uploadPopoverOpen {
+  transform: translate(0, 0) scale(1);
+}
+
+.styleTransferPopover {
+  height: 420px;
+}
+
+.styleTransferPopover .uploadAssetGrid {
+  max-height: 380px;
+  padding: 14px 14px 10px;
+}
+
+.uploadPopoverCopy {
+  margin: 0;
+  padding: 16px 18px;
+  text-align: center;
+  color: #f2f5ff;
+  font-size: 16px;
+  font-weight: 560;
+  line-height: 1.35;
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.uploadAssetGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  max-height: 170px;
+  overflow-y: auto;
+  padding: 12px 14px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(209, 218, 237, 0.46) transparent;
+}
+
+.uploadAssetGrid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.uploadAssetGrid::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgba(209, 218, 237, 0.46);
+}
+
+.uploadAssetButton {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.uploadAssetThumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.uploadAssetButtonSelected .uploadAssetThumb {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.9);
+}
+
+.uploadActions {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uploadPrimaryButton,
+.uploadSecondaryButton {
+  border: 0;
+  border-radius: 999px;
+  height: 44px;
+  font-size: 15px;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.uploadPrimaryButton {
+  background: #f8f9fb;
+  color: #090b0f;
+}
+
+.uploadPrimaryIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f8f9fb;
+  background: #090b0f;
+}
+
+.uploadSecondaryButton {
+  background: rgba(255, 255, 255, 0.07);
+  color: #f3f5fb;
+}
+
+.uploadSelectionStatus {
+  margin: 0;
+  font-size: 11px;
+  color: rgba(215, 223, 240, 0.74);
+  text-align: center;
+}
+
+.aspectChipHost {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  z-index: 130;
+}
+
+.resolutionChipHost {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  z-index: 130;
+}
+
+.resolutionPopover {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  width: 150px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(34, 35, 39, 0.97);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.48);
+  padding: 12px 12px 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 10px) scale(0.97);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 191;
+}
+
+.resolutionPopoverOpen {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.resolutionTitle {
+  margin: 0 0 10px;
+  color: rgba(228, 235, 247, 0.74);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.resolutionOptionList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.resolutionOptionButton {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #eef3ff;
+  border-radius: 10px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 8px;
+}
+
+.resolutionOptionDot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(225, 233, 247, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resolutionOptionDotInner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(242, 246, 255, 0.96);
+}
+
+.resolutionOptionValue {
+  font-size: 15px;
+  font-weight: 580;
+  color: rgba(242, 246, 255, 0.95);
+}
+
+.resolutionOptionButtonSelected .resolutionOptionDot {
+  border-color: rgba(243, 247, 255, 0.85);
+}
+
+.aspectRatioIcon {
+  display: inline-flex;
+  border: 2px solid rgba(236, 242, 255, 0.9);
+  border-radius: 4px;
+}
+
+.aspectIconSquare {
+  width: 13px;
+  height: 13px;
+}
+
+.aspectIconLandscape {
+  width: 17px;
+  height: 11px;
+}
+
+.aspectIconPortrait {
+  width: 11px;
+  height: 17px;
+}
+
+.aspectPopover {
+  position: absolute;
+  left: 50%;
+  width: 440px;
+  height: 170px;
+  bottom: calc(100% + 12px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(32, 33, 36, 0.96);
+  box-shadow: 0 28px 58px rgba(0, 0, 0, 0.56);
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 188px;
+  gap: 0px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px) scale(0.97);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 192;
+  overflow: hidden;
+}
+
+.aspectPopoverOpen {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.aspectOptionsColumn {
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.aspectOptionsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px 50px;
+  /* height: 200px ;
+  width: 200px; */
+  padding: 2px 40px 40px 2px;
+  align-content: center;
+  height: 80%;
+  width: 120%;
+}
+
+.aspectOptionButton {
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  height: 86px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.aspectOptionShape {
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(236, 241, 252, 0.94);
+  font-size: 13px;
+  font-weight: 580;
+  line-height: 1;
+}
+
+.aspectOptionButtonSelected .aspectOptionShape {
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.aspectPreviewColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aspectHandleTop,
+.aspectHandleBottom,
+.aspectHandleLeft,
+.aspectHandleRight {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(238, 244, 255, 0.88);
+  opacity: 0.88;
+}
+
+.aspectHandleTop,
+.aspectHandleBottom {
+  width: 28px;
+  height: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.aspectHandleTop {
+  top: -2px;
+}
+
+.aspectHandleBottom {
+  bottom: -2px;
+}
+
+.aspectHandleLeft,
+.aspectHandleRight {
+  width: 5px;
+  height: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.aspectHandleLeft {
+  left: -2px;
+}
+
+.aspectHandleRight {
+  right: -2px;
+}
+
+.aspectPreviewFrame {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background: #080b11;
+  position: relative;
+  bottom : 38px;
+  overflow: hidden;
+  transition: width 0.08s linear, height 0.08s linear;
+}
+
+.aspectHandleInteractive {
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+
+.aspectHandleInteractive:hover {
+  opacity: 1;
+}
+
+.aspectHandleLeft,
+.aspectHandleRight {
+  cursor: ew-resize;
+}
+
+.aspectHandleTop,
+.aspectHandleBottom {
+  cursor: ns-resize;
+}
+
+.aspectPreviewLine {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.aspectPreviewLineVerticalOne,
+.aspectPreviewLineVerticalTwo {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.aspectPreviewLineVerticalOne {
+  left: 33.333%;
+}
+
+.aspectPreviewLineVerticalTwo {
+  left: 66.666%;
+}
+
+.aspectPreviewLineHorizontalOne,
+.aspectPreviewLineHorizontalTwo {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.aspectPreviewLineHorizontalOne {
+  top: 33.333%;
+}
+
+.aspectPreviewLineHorizontalTwo {
+  top: 66.666%;
+}
+
+.generateButton {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #f5f8ff;
+  color: #0d1628;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1400px) {
+  .imageWorkspace {
+    padding: 18px 24px 14px;
+  }
+
+  .cardRow {
+    gap: 0;
+    height: clamp(220px, 42vh, 360px);
+  }
+
+  .promptCard {
+    width: min(23vw, 290px);
+    flex-basis: min(23vw, 290px);
+  }
+
+  .cardTiltTwo {
+    transform: translateX(-28px) rotate(1deg) translateY(34px);
+  }
+
+  .cardTiltThree {
+    transform: translateX(-56px) rotate(-1.2deg) translateY(12px);
+  }
+
+  .cardTiltFour {
+    transform: translateX(-84px) rotate(2.5deg) translateY(36px);
+  }
+
+  .promptDock {
+    padding: 8px;
+  }
+
+  .modelDropdown {
+    width: min(390px, 44vw);
+  }
+}
+
+@media (max-width: 1180px) {
+  .cardRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    height: clamp(220px, 34vh, 300px);
+  }
+
+  .promptCard {
+    width: auto;
+    flex-basis: auto;
+  }
+
+  .cardTiltOne,
+  .cardTiltTwo,
+  .cardTiltThree,
+  .cardTiltFour {
+    transform: none;
+  }
+
+  .promptInput {
+    min-height: 52px;
+  }
+
+  .uploadPopover {
+    width: min(360px, 78vw);
+  }
+
+  .aspectPopover {
+    width: min(560px, 88vw);
+    grid-template-columns: minmax(0, 1fr) 152px;
+  }
+
+  .styleTransferPopover {
+    height: 500px;
+  }
+
+  .styleTransferPopover .uploadAssetGrid {
+    max-height: 360px;
+  }
+
+  .uploadPopoverCopy {
+    font-size: 13px;
+    padding: 14px 14px;
+  }
+
+  .uploadPrimaryButton,
+  .uploadSecondaryButton {
+    height: 40px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .imageWorkspace {
+    min-height: auto;
+    height: auto;
+    padding: 16px 16px 14px;
+    overflow: visible;
+  }
+
+  .modelButton {
+    font-size: 20px;
+  }
+
+  .workspaceTitle {
+    font-size: clamp(34px, 8vw, 48px);
+  }
+
+  .workspaceTitleIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .cardRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    height: auto;
+  }
+
+  .promptCard {
+    min-height: 240px;
+    height: 240px;
+    transform: none;
+  }
+
+  .promptDock {
+    border-radius: 24px;
+    padding: 14px 12px 12px;
+  }
+
+  .promptInput {
+    font-size: 20px;
+  }
+
+  .chipButton {
+    font-size: 13px;
+    padding: 9px 12px;
+  }
+
+  .promptActions {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .promptActions::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .uploadPopover {
+    width: min(330px, 88vw);
+  }
+
+  .aspectPopover {
+    width: min(340px, 92vw);
+    grid-template-columns: 1fr;
+    left: 50%;
+    transform: translate(-50%, 12px) scale(0.97);
+  }
+
+  .aspectPopoverOpen {
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  .aspectPreviewColumn {
+    display: none;
+  }
+
+  .aspectOptionsGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .aspectOptionButton {
+    height: 68px;
+    padding: 4px;
+  }
+
+  .aspectOptionShape {
+    font-size: 12px;
+  }
+
+  .styleTransferPopover {
+    height: 470px;
+  }
+
+  .styleTransferPopover .uploadAssetGrid {
+    max-height: 330px;
+  }
+
+  .uploadPopoverAlignRight {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, 12px) scale(0.97);
+  }
+
+  .uploadPopoverAlignRight.uploadPopoverOpen {
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  .generateButton {
+    width: 46px;
+    height: 46px;
+  }
+
+  .modelDropdown {
+    width: min(100%, 520px);
+  }
+}
+
+.imageWorkspace {
+  overflow-y: auto;
+}
+
+.generatedHistory {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 8px 0 170px;
+}
+
+.generatedInfoText {
+  margin: 0;
+  color: rgba(221, 229, 244, 0.8);
+  font-size: 14px;
+  line-height: 1.4;
+  visibility: hidden;
+}
+
+.generatedRow {
+  display: grid;
+  grid-template-columns: minmax(220px, 370px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.generatedPromptColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.generatedPromptCard {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 18px 24px;
+}
+
+.generatedPromptText {
+  margin: 0;
+  color: #f2f6ff;
+  font-size: 14px;
+  font-weight: 590;
+  line-height: 1.33;
+  white-space: pre-wrap;
+}
+
+.generatedMetaRail {
+  display: flex;
+  gap: 8px;
+  padding-left: 6px;
+}
+
+.generatedMetaChip {
+  font-size: 11px;
+  color: rgba(218, 227, 245, 0.86);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.generatedResultColumn {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.generatedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.generatedImageWrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(7, 10, 14, 0.8);
+}
+
+.generatedImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.generatedActionRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: 2px 2px 0;
+}
+
+.generatedActionButton {
+  border: 0;
+  background: transparent;
+  color: rgba(214, 222, 238, 0.66);
+  font-size: 13px;
+  font-weight: 520;
+  padding: 2px 0;
+}
+
+.generatedActionButton:hover {
+  color: #f4f7ff;
+}
+
+@media (max-width: 1500px) {
+  .generatedPromptText {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .generatedRow {
+    grid-template-columns: 1fr;
+  }
+
+  .generatedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .generatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .generatedActionRow {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+.generationError {
+  margin: 2px 4px 0;
+  color: #ffb8b8;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.promptDock {
+  position: sticky;
+  right: auto;
+  width: 750px;
+  margin: 0 auto 8px;
+}
+
+.generateButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

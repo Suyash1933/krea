@@ -1,0 +1,774 @@
+.videoWorkspace {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(28, 27, 26, 0.86);
+  color: #f5f8ff;
+  overflow: hidden;
+}
+
+.workspaceTopBar {
+  padding: 24px 34px 0;
+  display: flex;
+  align-items: center;
+}
+
+.modelMenuHost {
+  position: relative;
+  font-size: 10px;
+  width: 180px;
+}
+
+.modelButton {
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #e8edf8;
+  font-size: 19px;
+  font-weight: 370;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+
+.modelButtonOpen {
+  color: #ffffff;
+}
+
+.workspaceBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 34px 216px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.workspaceBody::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.workspaceTitle {
+  margin: 8px auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 22px;
+  font-weight: 430;
+  line-height: 1;
+}
+
+.workspaceTitleIcon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: linear-gradient(150deg, #facc15, #f59e0b);
+  color: #fdfdfd;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.generatedPlaceholder {
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  min-height: 200px;
+  display: grid;
+  place-items: center;
+  color: #9ca8bb;
+  font-size: 21px;
+}
+
+.generatedHistory {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.generatedRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.generatedPromptCard {
+  width: min(460px, 100%);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 15px;
+}
+
+.generatedPromptCard p {
+  margin: 0;
+  color: #eef3ff;
+  font-size: 16px;
+  font-weight: 550;
+  line-height: 1.38;
+}
+
+.generatedMetaRail {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.generatedMetaRail span {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #d8e0f2;
+}
+
+.generatedVideosGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.generatedVideoWrap {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #121620;
+  min-height: 180px;
+}
+
+.generatedVideo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #0f131c;
+}
+
+.generatedActionRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.generatedActionRow button {
+  border: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e9effc;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 12px;
+}
+
+.generatedActionRow button:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.promptDock {
+  position: fixed;
+  right: 157px;
+  bottom: 24px;
+  width: 700px;
+  height: 120px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 32px;
+  background: #3b3b3d;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 26px 54px rgba(0, 0, 0, 0.4);
+  padding: 14px 16px 12px;
+  z-index: 20;
+}
+
+.promptInput {
+  width: 100%;
+  height: 50px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #f2f7ff;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.24;
+  padding: 10px;
+  resize: vertical;
+}
+
+.promptInput::placeholder {
+  color: #a1aaba;
+}
+
+.promptActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.chipHost {
+  position: relative;
+}
+
+.chipButton {
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f5ff;
+  font-size: 10px;
+  font-weight: 400;
+  height: 15px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.chipButton:hover,
+.chipButtonActive {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.generateButton {
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: #f2f6ff;
+  color: #0f141d;
+  font-size: 32px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.generateButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.generationError {
+  margin: 9px 0 0;
+  color: #ff8b8b;
+  font-size: 13px;
+}
+
+.modelDropdown {
+  width: 260px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  background: rgba(17, 18, 23, 0.96);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.46);
+  overflow: hidden;
+  z-index: 30;
+}
+
+.modelDropdownTop {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+}
+
+.modelDropdownChip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 200px;
+}
+
+.modelDropdownTitle {
+  margin: 0;
+  padding: 12px 16px;
+  color: #e7edf9;
+  font-size: 17px;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.modelDropdownScroll {
+  max-height: 180px;
+  width: 280px;
+  overflow-y: auto;
+  padding: 8px;
+  scrollbar-width: thin;
+}
+
+.modelOption {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: transparent;
+  text-align: left;
+  color: #f2f6ff;
+  padding: 9px;
+}
+
+.modelOption + .modelOption {
+  margin-top: 6px;
+}
+
+.modelOption:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.modelOptionSelected {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.modelOptionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.modelOptionName {
+  font-size: 18px;
+  font-weight: 620;
+  line-height: 1.16;
+}
+
+.modelOptionDescription {
+  margin: 6px 0 0;
+  color: rgba(222, 230, 244, 0.75);
+  font-size: 12px;
+  line-height: 1.34;
+}
+
+.modelOptionCheck {
+  color: #f6fbff;
+}
+
+.modelOptionStar {
+  color: rgba(230, 238, 255, 0.74);
+}
+
+.featurePopover,
+.selectionPopover {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 0;
+  z-index: 35;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  background: rgba(10, 10, 13, 0.98);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.46);
+}
+
+.startFramePopover {
+  width: 270px;
+  padding: 18px;
+}
+
+.featurePopoverText {
+  margin: 0;
+  color: #f2f5fb;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.featureActionStack {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.featureActionButton {
+  width: 100%;
+  min-height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f2f5fb;
+  font-size: 15px;
+  font-weight: 650;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.featureActionButtonPrimary {
+  background: #f4f4f5;
+  color: #101114;
+}
+
+.featureActionButton:hover {
+  filter: brightness(1.05);
+}
+
+.featureSelectionNote {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 12px;
+}
+
+.featureSelectionThumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  flex: 0 0 44px;
+}
+
+.featureSelectionBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f5ff;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+}
+
+.featureSelectionText {
+  color: #e7edf9;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.selectionPopover {
+  height: 200px;
+  width: 140px;
+  padding: 14px;
+}
+
+.selectionPopoverTitle {
+  margin: 0 0 10px;
+  color: rgba(238, 243, 252, 0.72);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.selectionOptionList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.selectionOptionButton {
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: #f3f7ff;
+  padding: 10px 10px 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 620;
+}
+
+.selectionOptionButton:hover,
+.selectionOptionButtonSelected {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.selectionIndicator {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.02);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.selectionOptionButtonSelected .selectionIndicator {
+  border-color: #2563eb;
+  background: #2563eb;
+}
+
+.aspectPopover {
+  width: 256px;
+  padding: 16px;
+}
+
+.aspectOptionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aspectOptionButton {
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  color: #f1f5ff;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.aspectOptionButton:hover,
+.aspectOptionButtonSelected {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.aspectOptionShape {
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+}
+
+.aspectOptionShapeLandscape {
+  width: 52px;
+  height: 28px;
+}
+
+.aspectOptionShapePortrait {
+  width: 24px;
+  height: 48px;
+}
+
+.aspectOptionLabel {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.assetOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: rgba(4, 6, 11, 0.74);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.assetModal {
+  width: min(860px, 100%);
+  max-height: min(82vh, 760px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  background: rgba(11, 11, 14, 0.98);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.44);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.assetModalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.assetModalEyebrow {
+  margin: 0;
+  color: rgba(193, 203, 222, 0.68);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.assetModalTitle {
+  margin: 6px 0 0;
+  color: #f5f8ff;
+  font-size: 26px;
+  line-height: 1.12;
+  font-weight: 650;
+}
+
+.assetModalClose {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f3f7ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assetModalClose:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.assetEmptyText {
+  margin: 0;
+  color: rgba(214, 224, 242, 0.74);
+  font-size: 15px;
+}
+
+.assetModalGrid {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-right: 4px;
+}
+
+.assetCard {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.assetCard:hover,
+.assetCardSelected {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.assetCardImage,
+.assetCardFallback {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+}
+
+.assetCardImage {
+  object-fit: cover;
+  display: block;
+}
+
+.assetCardFallback {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f2f5fb;
+  display: grid;
+  place-items: center;
+}
+
+.assetCardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.assetCardTitle {
+  color: #eef4ff;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.assetCardBadge {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #dce5f6;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 8px;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+@media (max-width: 1520px) {
+  .workspaceTopBar {
+    padding: 22px 24px 0;
+  }
+
+  .workspaceTitle {
+    font-size: 47px;
+  }
+
+  .promptInput {
+    font-size: 16px;
+  }
+
+  .chipButton {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .modelDropdown {
+    width: 285px;
+  }
+
+  .modelDropdownTitle {
+    font-size: 17px;
+  }
+
+  .modelOptionName {
+    font-size: 18px;
+  }
+
+  .modelOptionDescription {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .promptDock {
+    position: sticky;
+    left: auto;
+    right: auto;
+    bottom: 10px;
+    margin: 0 10px 10px;
+  }
+
+  .workspaceBody {
+    padding: 20px 12px 20px;
+  }
+
+  .workspaceTitle {
+    font-size: 26px;
+  }
+
+  .generatedVideosGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modelDropdown {
+    width: 330px;
+  }
+
+  .startFramePopover {
+    width: min(360px, calc(100vw - 30px));
+  }
+
+  .assetModalGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .selectionPopover,
+  .aspectPopover {
+    width: min(280px, calc(100vw - 30px));
+  }
+
+  .assetModalGrid,
+  .aspectOptionGrid {
+    grid-template-columns: 1fr;
+  }
+}

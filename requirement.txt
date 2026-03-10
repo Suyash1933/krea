@@ -1,0 +1,10 @@
+npx create-next-app@latest nextflow
+npm install @clerk/nextjs
+npm install @prisma/client prisma
+npm install reactflow
+npm install zustand
+npm install zod
+npm install lucide-react
+npm install @google/generative-ai
+npm install "trigger.dev"
+npm install transloadit
